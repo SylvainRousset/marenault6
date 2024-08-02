@@ -584,7 +584,7 @@ nav {
 
 #logo-section-black{
     height: 100%;
-    background-color: chocolate
+    
 
 }
 #section2{
@@ -942,7 +942,7 @@ nav {
     z-index: 1;
     width: 100%;
     height: 100vh;
-    background-color: red;
+    
    
 }
 
@@ -1652,7 +1652,7 @@ nav {
     z-index: 1;
     width: 100%;
     height: 100vh;
-    background-color: red;
+    
    
 }
 
@@ -2379,7 +2379,7 @@ nav {
     z-index: 1;
     width: 100%;
     height: 100vh;
-    background-color: red;
+    
    
 }
 
@@ -3355,7 +3355,7 @@ nav {
         z-index: 1;
         width: 100%;
         height: 100vh;
-        background-color: red;
+       
        
     }
     
@@ -4119,7 +4119,7 @@ nav {
   
     .postion-btn {
         position: relative; /* Conteneur positionné pour le positionnement absolu des enfants */
-        background-color: yellow;
+        
         height: auto;
         flex-grow: 1; /* Permet à cet élément de prendre la place restante */
         display: flex;
