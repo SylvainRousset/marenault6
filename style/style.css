@@ -825,11 +825,11 @@ nav {
 }
 
 .split-left {
-    transform: translateX(-100%);
+    transform: translateX(50%);
 }
 
 .split-right {
-    transform: translateX(100%);
+    transform: translateX(-50%);
 }
 
 .hide {
