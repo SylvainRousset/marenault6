@@ -3238,11 +3238,11 @@ nav {
     }
     
     .split-left {
-        transform: translateX(-100%);
+        transform: translateX(0%);
     }
     
     .split-right {
-        transform: translateX(100%);
+        transform: translateX(0%);
     }
     
     .hide {
@@ -3710,7 +3710,7 @@ nav {
         width: 110px;
         height: auto;
         display: block; /* Assurez-vous que le logo est visible */
-        z-index: 1000000;
+        z-index: 10000;
     }
     
     
