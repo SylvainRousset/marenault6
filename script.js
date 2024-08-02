@@ -9,8 +9,13 @@ function enableScroll() {
     document.body.classList.remove('no-scroll');
     document.body.style.overflow = 'auto'; // Réactive le défilement
 }
-
-
+document.getElementById('myButton').addEventListener('click', function() {
+    window.location.href = 'https://fr.wikipedia.org/wiki/Renault_6';
+});
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // True pour les mobiles, appliquez les styles ou classes CSS pour désactiver le curseur personnalisé
+    document.body.classList.add("no-custom-cursor");
+}
 // Fonction pour initialiser le curseur personnalisé
 function initCustomCursor() {
     const cursor = document.querySelector('.custom-cursor'); // Sélectionne l'élément du curseur personnalisé
@@ -155,7 +160,7 @@ function setupLogoChangeOnPosition() {
     if (logoElement) {
         logoElement.addEventListener('click', function(event) {
             event.preventDefault();
-            window.location.href = 'http://127.0.0.1:5500/renault_6_der_valide/index.html';
+            window.location.href = 'https://sylvainrousset.github.io/marenault6/';
         });
     }
 
