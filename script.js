@@ -597,7 +597,7 @@ function setupPageElements() {
         setTimeout(() => {
             imageContainer.classList.add('hide'); // Cacher l'image divisée
             videoContainer.style.opacity = 1; // Afficher le conteneur vidéo
-           
+            videoContainer.style.zIndex = 20000; // Augmenter le z-index du conteneur vidéo pour le rendre cliquable
         }, 1000); // La durée de l'animation doit correspondre à celle définie dans le CSS
     });
 
