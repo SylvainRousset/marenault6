@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@swup/head-plugin": "^2.2.0",
+    "@swup/scripts-plugin": "^2.1.0",
+    "lightbox2": "^2.11.4",
+    "swup": "^4.6.1"
+  }
+}
