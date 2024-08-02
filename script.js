@@ -12,9 +12,8 @@ function enableScroll() {
 document.getElementById('myButton').addEventListener('click', function() {
     window.location.href = 'https://fr.wikipedia.org/wiki/Renault_6';
 });
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    // True pour les mobiles, appliquez les styles ou classes CSS pour désactiver le curseur personnalisé
-    document.body.classList.add("no-custom-cursor");
+if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+    document.body.classList.add("android");
 }
 // Fonction pour initialiser le curseur personnalisé
 function initCustomCursor() {

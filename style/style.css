@@ -4979,8 +4979,6 @@ nav {
     
 }
 
-@media (hover: none) and (pointer: coarse) {
-    .custom-cursor, .custom-cursor-follow {
-        display: none; /* Cache complètement le curseur */
-    }
+body.android .custom-cursor, body.android .custom-cursor-follow {
+    display: none;   
 }
