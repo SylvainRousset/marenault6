@@ -4981,4 +4981,5 @@ nav {
 
 body.android .custom-cursor, body.android .custom-cursor-follow {
     display: none;   
+    opacity: 0;
 }
