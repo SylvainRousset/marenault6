@@ -3238,11 +3238,11 @@ nav {
     }
     
     .split-left {
-        transform: translateX(0%);
+        transform: translateX(50%);
     }
     
     .split-right {
-        transform: translateX(0%);
+        transform: translateX(-50%);
     }
     
     .hide {
