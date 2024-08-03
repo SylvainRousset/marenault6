@@ -285,12 +285,12 @@ nav ul li {
 
 .link-container:hover .toggle-menu__line {
     opacity: 1; /* Rend la ligne visible au survol */
-    right: -40px; /* Position ajustée au survol */
+    right: 0px; /* Position ajustée au survol */
     
 }
 
 .link-container:hover a {
-    transform: translateX(-40px); /* Décale le texte vers la droite */
+    transform: translateX(-60px); /* Décale le texte vers la droite */
     
 }
 
