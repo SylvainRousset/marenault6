@@ -1532,13 +1532,15 @@ nav {
 
 .text-item {
     font-size: 1.5rem;
-    margin-bottom: 50px;  
+    margin-bottom: 20px;  
 }
 
 
 #link-container {
     top:50%;
+    margin-top: 50px;
     padding-bottom: 0px;
+    padding-top: 0px;
 }
 
 
@@ -2381,9 +2383,23 @@ nav {
     
 
     
-    
+    #link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
 
-    
+    .text-item {
+      
+        font-size: 1.25rem;
+         
+    }
    
     
 
@@ -2495,11 +2511,16 @@ nav {
         max-width: 80px; /* Ajuster la taille selon vos besoins */
       
     }
+    #link-container {
     
+       margin-top: 50px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
     .text-item {
         margin: 0px 0;
-        font-size: 1.5rem;
-        margin-bottom: 60px;
+        font-size: 1.8rem;
+        margin-bottom: 40px;
        
     }
     
@@ -2526,8 +2547,8 @@ nav {
     }
     .text-item {
         margin: 0px 0;
-        font-size: 1.5rem;
-        margin-bottom: 60px;
+        font-size: 4.5rem;
+        margin-bottom: 100px;
        
     }
     
