@@ -17,11 +17,18 @@ if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
 }
 
 
-if ('ontouchstart' in document.documentElement) {
-    document.body.classList.add('touch-device');
-} else {
-    document.body.classList.add('no-touch-device');
+function applyCursorSettings() {
+    if ('ontouchstart' in document.documentElement || navigator.maxTouchPoints) {
+        // Si le dispositif est tactile, ajoutez une classe ou modifiez le style pour désactiver le curseur personnalisé
+        document.body.classList.add('touch-device');
+    } else {
+        document.body.classList.remove('touch-device');
+    }
 }
+
+
+// Appeler cette fonction après chaque chargement dynamique de contenu
+applyCursorSettings()
 // Fonction pour initialiser le curseur personnalisé
 function initCustomCursor() {
     const cursor = document.querySelector('.custom-cursor'); // Sélectionne l'élément du curseur personnalisé
@@ -383,6 +390,7 @@ function loadContentIntoContainer(containerId, url) {
             container.classList.add('loaded'); // Ajoute une classe pour afficher le conteneur chargé
             setupCloseButtons(); // Configure les boutons de fermeture
             setupClickableElements(); // Reconfigure les éléments cliquables après le chargement du nouveau contenu
+            applyCursorSettings(); // Applique les paramètres de curseur après le chargement
 
             // Synchroniser les animations après la fin de l'animation de la page
             setTimeout(() => {
