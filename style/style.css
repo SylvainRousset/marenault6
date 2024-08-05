@@ -438,7 +438,7 @@ nav {
     display: flex; /* Utilise Flexbox pour la mise en page */
     flex-direction: column; /* Organise les enfants en colonne */
     align-items: center; /* Centre les enfants horizontalement */
-    justify-content: center; /* Centre les enfants verticalement */
+    
     position: relative;
     background-image: url('../images/background_stars.png');
     background-size: cover;
@@ -450,21 +450,6 @@ nav {
     margin-top: -133px;
 }
 
-/* Styles pour le Background de la Section #histoire */
-#histoire::before {
-    content: "";
-    position: absolute;
-    top: 15%;
-    left: 12%;
-    width: 38%;
-    height: 65%;
-    background-image: url('../images/rebault_dog.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(90%);
-    z-index: 10; /* Z-index réduit pour être en arrière-plan */
-}
 
 #histoire::after {
     content: "";
@@ -489,9 +474,7 @@ nav {
 }
 
 /* Styles pour le Texte Overlay */
-#histoire .text-overlay {
-    position: relative;
-    position: absolute;
+#histoire .text-overlay {   
     top: 15%;
     left: 35%;
     padding: 20px;
@@ -528,7 +511,7 @@ nav {
     background-position: right bottom;
     color: black;
     border: none;
-    display: flex;
+    
     align-items: center;
     justify-content: center;
     font-size: 16px;
@@ -542,8 +525,25 @@ nav {
     z-index: 20;
     margin-top: 20px;
     cursor: none;
+    margin-left: 20px;
 }
-
+.image-low {
+    position: absolute;
+    width: 50%;
+    top: 10%;
+    left: 30px;
+    filter: brightness(50%);
+    height: 30%; /* Ajustez la hauteur selon vos besoins */
+    background-image: url('../images/rebault_dog.jpg');
+    background-size: cover; /* Assure que l'image couvre tout l'espace du conteneur sans être déformée */
+    background-position: center; /* Centre l'image dans le conteneur */
+    background-repeat: no-repeat; /* Empêche l'image de se répéter */
+    margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
+    display: flex;
+    z-index: 10;
+    
+    overflow: hidden; /* Pour s'assurer que l'image ne déborde pas */
+}
 #histoire .custom-button:hover {
     background-position: left bottom;
 }
@@ -565,6 +565,7 @@ nav {
 .gallery-description h2 {
     font-size: 16px;
     padding-bottom: 50px;
+    margin-bottom: 0;
     font-family: "ff-good-web-pro", "Arial", sans-serif;
     font-weight: 600;
     text-transform: uppercase;
@@ -584,9 +585,8 @@ nav {
 
 #logo-section-black{
     height: 100%;
-    
-
 }
+
 #section2{
     background-color: white;
     display: flex;
@@ -664,10 +664,6 @@ nav {
 
 
 
-
-
-
-
 /* Styles pour le modal */
 .modal {
     display: none;
@@ -683,6 +679,8 @@ nav {
 }
 
 .modal-content {
+     display: flex; /* Utilise Flexbox pour centrer le contenu */
+    position: relative;
     margin: auto;
     display: block;
     width: 90%;
@@ -942,8 +940,6 @@ nav {
     z-index: 1;
     width: 100%;
     height: 100vh;
-    
-   
 }
 
 .image-text-container {
@@ -1053,6 +1049,16 @@ nav {
 
 
 
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: absolute; /* Permet le positionnement flexible */
+    top: 65%; /* Ajustez cette valeur pour déplacer verticalement */
+    left: 40%; /* Ajustez cette valeur pour déplacer horizontalement */
+    transform: translate(-50%, -50%); /* Centre l'élément */
+}
 
 .section-title {
     font-size: 1.5rem;
@@ -1080,7 +1086,15 @@ nav {
     color: rgba(255, 255, 255, 0.7); /* Moins blanc au survol */
 }
 
-
+.footer-credit {
+    position: absolute;
+    bottom: 30px; /* Ajustez cette valeur pour déplacer verticalement */
+    right: 10px; /* Ajustez cette valeur pour déplacer horizontalement */
+    font-size: 1rem; /* Taille de la police */
+    color: #fff; /* Couleur du texte */
+    text-decoration: none; /* Enlève le soulignement */
+    transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
+}
 /* -------------page 2 ------------------------------*/
 
 
@@ -1142,7 +1156,6 @@ nav {
 
 .text-item {
     margin: 20px 0;
-    font-size: 1.5rem;
     color: #fff; /* Couleur de texte initiale */
     font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
     font-weight: 700;
@@ -1267,21 +1280,8 @@ nav {
 
 
 @media (max-width: 360px) {
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* Ajuste les éléments aux extrémités du container */
-        padding: 0px 0px; /* Ajoute de l'espace autour du contenu */
-        background-image: url('../images/baniere_r6.3.webp');
-        background-size: cover;
-        background-position: center;
-        height: 100vh; /* ou ajustez selon la hauteur désirée */
-        color: white;
-        text-align: left; /* Alignement du texte à gauche pour le titre et le logo */
-        position: relative; /* Important pour le positionnement absolu du logo */
-    }
-    
-    
+
+
     .header-text {
         bottom: 25%; /* En bas de la vue */
         left: 15px; /* À gauche de la vue */
@@ -1344,20 +1344,14 @@ nav {
     .toggle-menu__line {
         width: 60px; /* Largeur de la ligne */
         height: 2px;
-        background-color: white;
-        position: absolute;
         right: 0px; /* Position initiale à l'extérieur */
-        top: 50%;
-        transform: translateY(-70%);
-        opacity: 0; /* Commence invisible */
-        transition: opacity 0.6s ease, right 0.6s ease; /* Transition pour l'apparence et la position */
+        
     }
 
     
     .hidden-links {
-        min-height: 100px;
         top: 20px; /* Position ajustée selon vos besoins */
-        right: 2%;
+        
        
     }
     
@@ -1365,9 +1359,6 @@ nav {
     .hidden-links .line {
         width: 35px;
         height: 2px;
-        background: white;
-        margin: 20px 0; /* Espacement initial large entre les lignes */
-        transition: margin 1s, transform 1s, height 1s; /* Transition pour les marges, les transformations et la hauteur */
         
     }
     
@@ -1377,163 +1368,74 @@ nav {
     }
     
     
-    
- 
-    
     #histoire {
-        display: flex; /* Utilise Flexbox pour la mise en page */
-        flex-direction: column; /* Organise les enfants en colonne */
-        align-items: center; /* Centre les enfants horizontalement */
-        justify-content: center; /* Centre les enfants verticalement */
-        position: relative;
-        background-image: url('../images/background_stars.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding-bottom: 200px;
+        padding-bottom: 0px;
         height: 100vh;
         width: 88vw;
         margin-top: 0px;
     }
     
-    /* Styles pour le Background de la Section #histoire */
-    #histoire::before {
-      
-        opacity: 0;
-    }
-    
 
     /* Conteneur Parent pour le Texte Principal et le Bouton */
     .text-and-button {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 50%;
+        margin-top: 50px;
         margin-left: 0%;
         padding-left: 0px;
-        z-index: 20; /* Assure que le texte est visible au-dessus des arrière-plans */
     }
     
     /* Styles pour le Texte Overlay */
     #histoire .text-overlay {
-        position: relative;
-        position: absolute;
-        top: 5%;
+        display: flex;
+        flex-direction: column;
+        top: 10%;
         left: 0%;
-        padding: 20px;
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        display: inline-block;
-        transform: scaleY(1.6);
-        text-transform: uppercase;
-        color: #fff;
-        font-size: 0.8rem;
-        margin: 0;
-        z-index: 30; /* Plus élevé pour apparaître au-dessus de tout */
-        line-height: 120%;
-        font-weight: 700;
+        font-size: 1rem;
     }
     
     /* Texte Additionnel */
     .additional-text { 
-        font-size: 0.6rem;
+        font-size: 0.8rem;
         margin-top: 0;
-        margin-bottom: 20px;
-        padding: 20px;
+        margin-bottom: 0px;
+        padding-left: 20px;
         
     }
-    
+    .image-low {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: 250px; /* Ajustez la hauteur selon vos besoins */
+        justify-content: center;
+        align-items: center;
+    }
     /* Bouton Personnalisé */
     #histoire .custom-button {
         width: 100px;
         height: 30px;
         font-size: 7px;
-        margin-left: 20px;
         margin-top: 0;
     }
     
-    #histoire .custom-button:hover {
-        background-position: left bottom;
-    }
-    .image-low {
-        width: 100%;
-        height: 250px; /* Ajustez la hauteur selon vos besoins */
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: cover; /* Assure que l'image couvre tout l'espace du conteneur sans être déformée */
-        background-position: center; /* Centre l'image dans le conteneur */
-        background-repeat: no-repeat; /* Empêche l'image de se répéter */
-        margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* Pour s'assurer que l'image ne déborde pas */
-    }
+
+   
 
 
 
 
 .gallery-description {
-    text-align: center;
-    color: black;
-    padding-top: 60px;
-    padding-bottom: 0;
-    
+    padding-top: 60px;      
 }
 
 .gallery-description h2 {
-    font-size: 12px;
-    margin-bottom: 50px;
-    font-family: "ff-good-web-pro", "Arial", sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .25em;
-    line-height: 140%;
-    width: 90%;   
+    font-size: 12px; 
 }
-
-
-
 
 .container-all{
-    display: flex;
-    flex-direction: column;
-    width: 83vw;
-    top: 0;
-    right: 0vh;
-    margin-left: 0px;
-    margin-right: 150px;
-    
+    margin-left: 0px;   
 }
-.postion-btn{
-    position: relative;
-    height: auto;
-    flex-grow: 1; /* Permet à cet élément de prendre la place restante */
-    display: flex;   
-}
-.swiper-navigation-container {
-    display: inline-flex;
-    height: auto; /* Hauteur suffisante pour contenir les deux boutons verticalement */
-    width: auto; /* Largeur pour contenir un seul bouton */
-    position: absolute;   
-    bottom: auto;
-    right: 0vh;
-    
-}
-
-
-
-.swiper-slide {
-
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-
-
 
 /* Styles pour le modal */
-.modal {
- 
-}
 
 
 .modal-content {
@@ -1546,217 +1448,51 @@ nav {
 }
 
 
-
-
-.swiper-navigation-container-after{
-    height: auto; /* Hauteur suffisante pour contenir les deux boutons verticalement */
-    width: auto; /* Largeur pour contenir un seul bouton */
-    position: absolute;
-    display: flex;
-    flex-direction: column; /* Force l'alignement vertical */
-  
-    align-items: center; /* Centre les boutons horizontalement */
-    z-index: 10;
-    
-}
-
 .swiper-button-prev, .swiper-button-next {
-    user-select: none; /* Désactive la sélection de texte */
-    -webkit-user-select: none; /* Pour les navigateurs Webkit */
-    -moz-user-select: none; /* Pour les navigateurs Firefox */
-    -ms-user-select: none; /* Pour les navigateurs Internet Explorer */
-    pointer-events: auto; /* Assurez-vous que les événements de souris sont activés */
-    background-color: black;
     width: 30px; /* Largeur ajustée pour le conteneur du bouton */
     height: 30px; /* Hauteur ajustée pour le conteneur du bouton */
-    position: relative; /* Position relative pour centrer le SVG */
-    margin-top: 0;
-    left: 0;
-    cursor: none;
-    
-}
-
-.swiper-button-prev svg,
-.swiper-button-next svg {
-    
-        width: 9px;
-        height: 14px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    
-}
-
-.swiper-button-prev:hover, .swiper-button-next:hover {
-    background-color: gray;
-}
-
-
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    content: none; /* Masquer le texte ajouté */
+   
 }
 
 .main-container {
-    z-index: 2;
-    height: 100%;
+
     padding-top: 100px;
-    padding-bottom: 100px;
-    
+    padding-bottom: 100px;  
 }
 
 #split-video {
-   
     width: 100vw;
     height: 40vh;
-  
 }
-
-#image-container {
-  
-    width: 100%;
-    height: 100%;
-    
-}
-
 
 #video-container-split {
-
     width: 100vw;
     height: 39vh;
 }
 
-#video-container-split iframe {
-    max-width: 100%;
-    max-height: 100%;
-   
-}
 .circle-container {
-
     width: 75px; /* Taille du cercle */
-    height: 75px; /* Taille du cercle */
-   
-}
-
-
-
-
-
-
-
-
-#image-text-section {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100vh;
-    
-   
-}
-
-.image-text-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    
-}
-
-#background-image {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-image: url('../images/img_after/after1.jpg');
-    background-size: cover;
-    background-position: center;
-}
-#background-image::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2); /* Ajustez l'opacité selon vos besoins */
-    z-index: 1; /* S'assurer qu'il est au-dessus de l'image mais en dessous du texte */
-}
-.overlay-text-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    text-align: center;
-    z-index: 2;
+    height: 75px; /* Taille du cercle */ 
 }
 
 .overlay-text {
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 50px;
-    
+    margin-bottom: 50px; 
 }
 
 .overlay-text h1 {
-    margin: 0 0 10px;
     font-size: 1.2rem; /* Taille du texte pour le mot */
-    font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
 }
 
 .overlay-text p {
-    margin: 0;
     font-size: 1rem; /* Taille du texte pour la phrase courte */
-    font-family: "ff-good-web-pro", "Arial", sans-serif;
 }
 
-#gradient-section {
-    position: sticky;
-    bottom: 0;
-    min-height: 30vh; /* Utilisez min-height au lieu de height pour éviter les bugs */
-    width: 100%;
-    background: gray; /* Couleur initiale de fond */
-    padding: 50px 0; /* Ajustez les marges internes pour votre contenu */
-    text-align: center;
-    color: white; /* Couleur du texte pour contraste */
-    transition: background 2s ease; /* Transition douce pour le changement de couleur de fond */
-}
-
-#overlay {
-    position: absolute; /* Absolu pour couvrir la section */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black; /* Couleur initiale de fond */
-    transition: opacity 3s ease; /* Transition douce pour le changement d'opacité */
-    opacity: 1; /* Opacité initiale */
-    z-index: 2; /* Place l'overlay au-dessus de tout */
-}
-
-.transparent-overlay-b {
-    opacity: 0 !important;
-    z-index: -1 !important;
-}
-.content-down {
-    display: flex;
-    justify-content: flex-end; /* Aligner les enfants à droite */
-    align-items: center; /* Centrer les éléments verticalement si nécessaire */
-    height: 100%; /* Assurez-vous que la hauteur est définie pour centrer les éléments verticalement */
-    width: 90%;
-}
 
 #inside-image {
-    position: absolute;
     top: 14%;
     left: 10px;
-    transform: translateY(-50%);
     max-width: 50px; /* Ajuster la taille selon vos besoins */
-    height: auto;
-    z-index: 1; /* S'assurer que l'image est au-dessus de l'overlay */
+   
 }
 
 
@@ -1777,235 +1513,40 @@ nav {
 }
 .contact-link {
     font-size: 0.90rem;
-    color: #fff;
-    text-decoration: none;
-   margin-top: 30px;
-   
-    transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
-    text-decoration: none;
+    margin-top: 30px;    
 }
 .footer-credit {
-    position: absolute;
     bottom: 10px; /* Ajustez cette valeur pour déplacer verticalement */
-    right: 10px; /* Ajustez cette valeur pour déplacer horizontalement */
     font-size: 0.6rem; /* Taille de la police */
     color: #fff; /* Couleur du texte */
-    text-decoration: none; /* Enlève le soulignement */
-    transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
     align-items: center; /* Centre les liens horizontalement */
 }
 
 /* -------------page 2 ------------------------------*/
 
 
-.content {
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-image: url('../images/background_stars.png'); 
-    cursor: none;
-}
-#video-container {
-    width: 80%;  /* Largeur du conteneur de la vidéo */
-    max-width: 640px; /* Maximum width */
-    /* Utiliser aspect-ratio pour garder 16:9 */
-    aspect-ratio: 16 / 9;
-    overflow: hidden; /* Pour éviter tout débordement si nécessaire */
-
-    display: flex; /* Flex pour centrer le contenu du conteneur */
-    justify-content: center;
-    align-items: center;
-}
-#video-container iframe {
-    width: 100%; /* Fait en sorte que l'iframe prenne toute la largeur du conteneur */
-    height: 100%; /* Et toute la hauteur pour maintenir l'aspect ratio */
-}
-
-
-    
 
 /*      ---------------------page 3  -----------------------*/
 
 
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-}
 
 .text-item {
-    margin: 20px 0;
     font-size: 1.5rem;
-    color: #fff; /* Couleur de texte initiale */
-    font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-    font-weight: 700;
-    line-height: 100%;
-    
-    text-transform: uppercase;
-    display: inline-block; /* Ensure the transform is applied correctly */
-    transform: scaleY(1.5); /* Adjust the scale factor as needed */
-    margin-bottom: 50px;
-    text-decoration: none; /* Enlève le surlignement */
-    position: relative; /* Pour contenir les pseudo-éléments */
-    transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
+    margin-bottom: 50px;  
 }
 
-.text-item:hover {
-    color: #888; /* Couleur grise lors du survol */
-}
-
-/* Pseudo-élément pour le texte supplémentaire */
-.text-item::after {
-    content: attr(data-hover); /* Utilise l'attribut data-hover pour le texte */
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleX(2); /* Centre le texte et l'étire horizontalement */
-    height: 100%;
-    color: transparent; /* Initialement transparent */
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 0.25em; /* Réduit la taille du texte à 50% */
-    transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
-    text-align: center; /* Centre le texte */
-}
-
-/* Effet de survol */
-.text-item:hover::after {
-    color: #fff; /* Couleur du texte lors du survol */
-    transform: translateX(-50%) scaleX(1); /* Réduit le texte à sa taille normale et le garde centré */
-}
-
-
-.menu-item {
-    overflow: hidden; /* Pour cacher les éléments en dehors de leur conteneur */
-}
-
-.text-item.appear {
-    animation: slideUp 1s forwards;
-}
-
-.text-item.disappear {
-    animation: slideDown 1s forwards;
-}
-
-#page3-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transform: translateY(100%);
-    transition: transform 1s ease-in-out;
-    background-color: #565655;
-    z-index: -1;
-}
-
-#page3-container.loaded {
-    transform: translateY(0);
-    z-index: 1;
-    background-color: #565655;
-}
 
 #link-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    text-align: center;
     top:50%;
     padding-bottom: 0px;
 }
 
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    text-decoration: none;
-    outline: none;
-    cursor: none;
-}
-
-.close-btn::before,
-.close-btn::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background-color: white;
-}
-
-.close-btn::before {
-    transform: rotate(45deg);
-}
-
-.close-btn::after {
-    transform: rotate(-45deg);
-}
-
-#close-btn-page2{
-
-    margin-right: 10%;
-
-}
 
 }
 @media (min-width: 361px) and (max-width: 671px) {
-    /*{
-        border: 1px solid red; 
-        box-sizing: border-box; 
-    } */
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* Ajuste les éléments aux extrémités du container */
-        padding: 0px 0px; /* Ajoute de l'espace autour du contenu */
-        background-image: url('../images/baniere_r6.3.webp');
-        background-size: cover;
-        background-position: center;
-        height: 100vh; /* ou ajustez selon la hauteur désirée */
-        color: white;
-        text-align: left; /* Alignement du texte à gauche pour le titre et le logo */
-        position: relative; /* Important pour le positionnement absolu du logo */
+        padding: 0px 0px; /* Ajoute de l'espace autour du contenu */   
     }
     
     
@@ -2018,9 +1559,7 @@ nav {
     }
     
     .lebowski-title {
-    
         font-size: .675rem;
-       
     }
     
     
@@ -2030,134 +1569,60 @@ nav {
         left: 15px;
         width: 75px; /* Taille du cercle */
         height: 75px; /* Taille du cercle */
-      
-     
     }
-    
-    
-    
     
     #logo {
         position: fixed;
         top: 0px;
         left: 0px;
-        width: 100px;
-     
-        
+        width: 100px;  
     }
     
-    
     nav {
-        position: absolute;
-        top: 10px; /* Espacement du haut */
         right: 15px; /* Espacement de droite */
     }
     
     nav ul {
-       
-        padding-right: 0px;
-        
+        padding-right: 0px;  
     }
     
-    
-    
-    
     .link-container a {
-    
         font-size: 10px;
         padding: 8px 0px;
     }
     
     .toggle-menu__line {
         width: 60px; /* Largeur de la ligne */
-        height: 2px;
-        background-color: white;
-        position: absolute;
         right: 0px; /* Position initiale à l'extérieur */
-        top: 50%;
-        transform: translateY(-70%);
-        opacity: 0; /* Commence invisible */
-        transition: opacity 0.6s ease, right 0.6s ease; /* Transition pour l'apparence et la position */
     }
 
     
-    .hidden-links {
-        min-height: 100px;
-        top: 20px; /* Position ajustée selon vos besoins */
-        right: 2%;
-       
-    }
-    
     /* Styles des lignes */
     .hidden-links .line {
-        width: 35px;
-        height: 2px;
-        background: white;
-        margin: 20px 0; /* Espacement initial large entre les lignes */
-        transition: margin 1s, transform 1s, height 1s; /* Transition pour les marges, les transformations et la hauteur */
-        
+        width: 35px;   
     }
-    
-    
-    .line.black {
-        background-color: black;
-    }
-    
-    
-    
- 
     
     #histoire {
-        display: flex; /* Utilise Flexbox pour la mise en page */
-        flex-direction: column; /* Organise les enfants en colonne */
-        align-items: center; /* Centre les enfants horizontalement */
-        justify-content: center; /* Centre les enfants verticalement */
-        position: relative;
-        background-image: url('../images/background_stars.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
         padding-bottom: 0px;
         height: 100vh;
         width: 88vw;
         margin-top: 0px;
     }
     
-    /* Styles pour le Background de la Section #histoire */
-    #histoire::before {
-      
-        opacity: 0;
-    }
-    
 
     /* Conteneur Parent pour le Texte Principal et le Bouton */
     .text-and-button {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 30%;
+        margin-top: 0px;
         margin-left: 0%;
         padding-left: 0px;
-        z-index: 20; /* Assure que le texte est visible au-dessus des arrière-plans */
     }
     
     /* Styles pour le Texte Overlay */
     #histoire .text-overlay {
-        position: relative;
-        position: absolute;
-        top: 10%;
-        left: 0%;
-        padding-left: 20px;
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        display: inline-block;
-        transform: scaleY(1.6);
-        text-transform: uppercase;
-        color: #fff;
-        font-size: 1rem;
-        margin: 0;
-        z-index: 30; /* Plus élevé pour apparaître au-dessus de tout */
-        line-height: 120%;
-        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+       
+        font-size: 0.8rem;
     }
     
     /* Texte Additionnel */
@@ -2178,296 +1643,76 @@ nav {
         
     }
     
-    #histoire .custom-button:hover {
-        background-position: left bottom;
-    }
     .image-low {
+        position: relative;
+        top: auto;
+        left: auto;
         width: 100%;
         height: 250px; /* Ajustez la hauteur selon vos besoins */
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: cover; /* Assure que l'image couvre tout l'espace du conteneur sans être déformée */
-        background-position: center; /* Centre l'image dans le conteneur */
-        background-repeat: no-repeat; /* Empêche l'image de se répéter */
-        margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
-        display: flex;
         justify-content: center;
         align-items: center;
-        overflow: hidden; /* Pour s'assurer que l'image ne déborde pas */
     }
 
-
-
-
 .gallery-description {
-    text-align: center;
-    color: black;
-    padding-top: 60px;
-    padding-bottom: 0;
-    
+    padding-top: 60px;  
 }
 
 .gallery-description h2 {
     font-size: 12px;
-    margin-bottom: 50px;
-    font-family: "ff-good-web-pro", "Arial", sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .25em;
-    line-height: 140%;
-    width: 90%;   
 }
-
-
 
 
 .container-all{
-    display: flex;
-    flex-direction: column;
-    width: 83vw;
-    top: 0;
-    right: 0vh;
-    margin-left: 0px;
-    margin-right: 150px;
-    
+    margin-left: 0px;  
 }
-.postion-btn{
-    position: relative;
-    height: auto;
-    flex-grow: 1; /* Permet à cet élément de prendre la place restante */
-    display: flex;   
-}
-.swiper-navigation-container {
-    display: inline-flex;
-    height: auto; /* Hauteur suffisante pour contenir les deux boutons verticalement */
-    width: auto; /* Largeur pour contenir un seul bouton */
-    position: absolute;   
-    bottom: auto;
-    right: 0vh;
-    
-}
-
-
-
-.swiper-slide {
-
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-
-
-
-/* Styles pour le modal */
-.modal {
- 
-}
-
 
 .modal-content {
-    display: flex; /* Utilise Flexbox pour centrer le contenu */
-    position: relative;
     align-items: center; /* Centre verticalement */
     justify-content: center; /* Centre horizontalement */
     top: 20%;
    
 }
 
-
-
-
-.swiper-navigation-container-after{
-    height: auto; /* Hauteur suffisante pour contenir les deux boutons verticalement */
-    width: auto; /* Largeur pour contenir un seul bouton */
-    position: absolute;
-    display: flex;
-    flex-direction: column; /* Force l'alignement vertical */
-  
-    align-items: center; /* Centre les boutons horizontalement */
-    z-index: 10;
-    
-}
-
 .swiper-button-prev, .swiper-button-next {
-    user-select: none; /* Désactive la sélection de texte */
-    -webkit-user-select: none; /* Pour les navigateurs Webkit */
-    -moz-user-select: none; /* Pour les navigateurs Firefox */
-    -ms-user-select: none; /* Pour les navigateurs Internet Explorer */
-    pointer-events: auto; /* Assurez-vous que les événements de souris sont activés */
-    background-color: black;
     width: 30px; /* Largeur ajustée pour le conteneur du bouton */
-    height: 30px; /* Hauteur ajustée pour le conteneur du bouton */
-    position: relative; /* Position relative pour centrer le SVG */
-    margin-top: 0;
-    left: 0;
-    cursor: none;
-    
+    height: 30px; /* Hauteur ajustée pour le conteneur du bouton */    
 }
-
-.swiper-button-prev svg,
-.swiper-button-next svg {
-    
-        width: 9px;
-        height: 14px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    
-}
-
-.swiper-button-prev:hover, .swiper-button-next:hover {
-    background-color: gray;
-}
-
-
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    content: none; /* Masquer le texte ajouté */
-}
-
 .main-container {
-    z-index: 2;
-    height: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
-    
 }
 
 #split-video {
-   
     width: 100vw;
     height: 40vh;
-  
 }
 
-#image-container {
-  
-    width: 100%;
-    height: 100%;
-    
-}
 
 
 #video-container-split {
-
     width: 100vw;
     height: 39vh;
 }
 
-#video-container-split iframe {
-    max-width: 100%;
-    max-height: 100%;
-   
-}
+
 .circle-container {
-
     width: 75px; /* Taille du cercle */
-    height: 75px; /* Taille du cercle */
-   
+    height: 75px; /* Taille du cercle */ 
 }
 
 
-
-
-
-
-
-
-#image-text-section {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100vh;
-    
-   
-}
-
-.image-text-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    
-}
-
-#background-image {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-image: url('../images/img_after/after1.jpg');
-    background-size: cover;
-    background-position: center;
-}
-#background-image::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2); /* Ajustez l'opacité selon vos besoins */
-    z-index: 1; /* S'assurer qu'il est au-dessus de l'image mais en dessous du texte */
-}
-.overlay-text-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    text-align: center;
-    z-index: 2;
-}
 
 .overlay-text {
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 50px;
-    
+    margin-bottom: 50px; 
 }
 
 .overlay-text h1 {
-    margin: 0 0 10px;
     font-size: 1.5rem; /* Taille du texte pour le mot */
-    font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
 }
 
-.overlay-text p {
-    margin: 0;
-    font-size: 1.5rem; /* Taille du texte pour la phrase courte */
-    font-family: "ff-good-web-pro", "Arial", sans-serif;
-}
 
-#gradient-section {
-    position: sticky;
-    bottom: 0;
-    min-height: 30vh; /* Utilisez min-height au lieu de height pour éviter les bugs */
-    width: 100%;
-    background: gray; /* Couleur initiale de fond */
-    padding: 50px 0; /* Ajustez les marges internes pour votre contenu */
-    text-align: center;
-    color: white; /* Couleur du texte pour contraste */
-    transition: background 2s ease; /* Transition douce pour le changement de couleur de fond */
-}
 
-#overlay {
-    position: absolute; /* Absolu pour couvrir la section */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black; /* Couleur initiale de fond */
-    transition: opacity 3s ease; /* Transition douce pour le changement d'opacité */
-    opacity: 1; /* Opacité initiale */
-    z-index: 2; /* Place l'overlay au-dessus de tout */
-}
 
-.transparent-overlay-b {
-    opacity: 0 !important;
-    z-index: -1 !important;
-}
 .content-down {
     display: flex;
     justify-content: flex-end; /* Aligner les enfants à droite */
@@ -2499,282 +1744,54 @@ nav {
 }
 .link-container-footer{
     flex-direction: column; /* Affiche les liens en colonne */
-    gap: 20px; /* Espace entre les liens */
     align-items: center; /* Centre les liens horizontalement */
 }
 .contact-link {
     font-size: 1rem;
-    color: #fff;
-    text-decoration: none;
    margin-top: 30px;
    margin-left: 20px;
-    transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
-    text-decoration: none;
 }
 .footer-credit {
-    position: absolute;
-    bottom: 30px; /* Ajustez cette valeur pour déplacer verticalement */
-    right: 10px; /* Ajustez cette valeur pour déplacer horizontalement */
     font-size: 0.6rem; /* Taille de la police */
-    color: #fff; /* Couleur du texte */
-    text-decoration: none; /* Enlève le soulignement */
-    transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
 }
 
 /* -------------page 2 ------------------------------*/
-
-
-.content {
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-image: url('../images/background_stars.png'); 
-    cursor: none;
-}
-#video-container {
-    width: 80%;  /* Largeur du conteneur de la vidéo */
-    max-width: 640px; /* Maximum width */
-    /* Utiliser aspect-ratio pour garder 16:9 */
-    aspect-ratio: 16 / 9;
-    overflow: hidden; /* Pour éviter tout débordement si nécessaire */
-
-    display: flex; /* Flex pour centrer le contenu du conteneur */
-    justify-content: center;
-    align-items: center;
-}
-#video-container iframe {
-    width: 100%; /* Fait en sorte que l'iframe prenne toute la largeur du conteneur */
-    height: 100%; /* Et toute la hauteur pour maintenir l'aspect ratio */
-}
-
-
-    
+   
 
 /*      ---------------------page 3  -----------------------*/
 
 
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-}
-
 .text-item {
-    margin: 20px 0;
     font-size: 1.5rem;
-    color: #fff; /* Couleur de texte initiale */
-    font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-    font-weight: 700;
-    line-height: 100%;
-    text-transform: uppercase;
-    display: inline-block; /* Ensure the transform is applied correctly */
-    transform: scaleY(1.5); /* Adjust the scale factor as needed */
     margin-bottom: 50px;
-    text-decoration: none; /* Enlève le surlignement */
-    position: relative; /* Pour contenir les pseudo-éléments */
-    transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
-}
-
-.text-item:hover {
-    color: #888; /* Couleur grise lors du survol */
-}
-
-/* Pseudo-élément pour le texte supplémentaire */
-.text-item::after {
-    content: attr(data-hover); /* Utilise l'attribut data-hover pour le texte */
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleX(2); /* Centre le texte et l'étire horizontalement */
-    height: 100%;
-    color: transparent; /* Initialement transparent */
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 0.25em; /* Réduit la taille du texte à 50% */
-    transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
-    text-align: center; /* Centre le texte */
-}
-
-/* Effet de survol */
-.text-item:hover::after {
-    color: #fff; /* Couleur du texte lors du survol */
-    transform: translateX(-50%) scaleX(1); /* Réduit le texte à sa taille normale et le garde centré */
 }
 
 
-.menu-item {
-    overflow: hidden; /* Pour cacher les éléments en dehors de leur conteneur */
-}
 
-.text-item.appear {
-    animation: slideUp 1s forwards;
-}
-
-.text-item.disappear {
-    animation: slideDown 1s forwards;
-}
-
-#page3-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transform: translateY(100%);
-    transition: transform 1s ease-in-out;
-    background-color: #565655;
-    z-index: -1;
-}
-
-#page3-container.loaded {
-    transform: translateY(0);
-    z-index: 1;
-    background-color: #565655;
-}
 
 #link-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    text-align: center;
-    top:0%;
     padding-bottom: 0px;
 }
 
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    text-decoration: none;
-    outline: none;
-    cursor: none;
-}
-
-.close-btn::before,
-.close-btn::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background-color: white;
-}
-
-.close-btn::before {
-    transform: rotate(45deg);
-}
-
-.close-btn::after {
-    transform: rotate(-45deg);
-}
-
-#close-btn-page2{
-
-    margin-right: 10%;
-
-}
 
 }  
 
 @media (min-width: 671px) and (max-width: 1090px)  {
 
     header {
-    
         padding: 0px 0px; /* Ajoute de l'espace autour du contenu */
- 
     }
-    #logo {
-        position: fixed;
-        top: 20px;
+    #logo { 
         left: 0px;
         width: 110px;
-        height: auto;
-        display: block; /* Assurez-vous que le logo est visible */
-        z-index: 1000000;
     }
     
     .header-text {
-        position: absolute; /* Fixe la position par rapport à la fenêtre du navigateur */
-        bottom: 20%; /* En bas de la vue */
         left: 0px; /* À gauche de la vue */
         width: 70%; /* Pleine largeur pour permettre la centrage du texte */
-        text-align: left; /* Alignement du texte à gauche */
-        padding: 20px; /* Ajoute un peu d'espace autour du texte */
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        font-weight: 700;
-        line-height: 100%;
-        text-transform: uppercase;
-        color: #fff; /* Couleur du texte */
         font-size: 2.3rem;
-        margin: 0; /* Annule les marges par défaut */
-        -webkit-text-size-adjust: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
     }
-    
-
-    
-
-    
-    
-    nav {
-        position: absolute;
-        top: 10px; /* Espacement du haut */
-        right: 30px; /* Espacement de droite */
-    }
-    
-    nav ul {
-        height: 100%;
-        list-style-type: none;
-        padding: 0;
-        padding-right: 50px;
-        
-    }
-    
-    nav ul li {
-        margin-bottom: 20px; /* Espacement entre les éléments de la liste */
-    }
-    
-    .link-container {
-        display: flex;
-        align-items: center; /* Centre les éléments verticalement */
-        position: relative; /* Pour positionner absolument la ligne */
-        z-index: 1000;
-    }
-    
-
-    
+       
     nav {
         position: absolute;
         top: 10px; /* Espacement du haut */
@@ -2787,678 +1804,62 @@ nav {
         
     }
     
-    
-    
-    
     .link-container a {
-    
         font-size: 18px;
         padding: 8px 0px;
     }
     
     .toggle-menu__line {
         width: 60px; /* Largeur de la ligne */
-        height: 2px;
-        background-color: white;
-        position: absolute;
-        right: 0px; /* Position initiale à l'extérieur */
-        top: 50%;
-        transform: translateY(-70%);
-        opacity: 0; /* Commence invisible */
-        transition: opacity 0.6s ease, right 0.6s ease; /* Transition pour l'apparence et la position */
-    }
-
-    
-    .hidden-links {
-        min-height: 100px;
-        top: 20px; /* Position ajustée selon vos besoins */
-        right: 2%;
-       
+        right: 0px; /* Position initiale à l'extérieur */   
     }
     
     /* Styles des lignes */
     .hidden-links .line {
-        width: 35px;
-        height: 2px;
-        background: white;
-        margin: 20px 0; /* Espacement initial large entre les lignes */
-        transition: margin 1s, transform 1s, height 1s; /* Transition pour les marges, les transformations et la hauteur */
-        
+        width: 35px;  
     }
-    
-    
-    .line.black {
-        background-color: black;
-    }
-    
-    
-    
-    
-    
+       
     #histoire {
-        display: flex; /* Utilise Flexbox pour la mise en page */
-        flex-direction: column; /* Organise les enfants en colonne */
-        align-items: center; /* Centre les enfants horizontalement */
-        justify-content: center; /* Centre les enfants verticalement */
-        position: relative;
-        background-image: url('../images/background_stars.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
         padding-bottom: 0px;
-        height: 100vh;
-        width: 92vw;
         margin-top: 0px;
     }
     
-    /* Styles pour le Background de la Section #histoire */
-    #histoire::before {
-        content: "";
-        position: absolute;
-        top: 0%;
-        left: 12%;
-        width: 38%;
-        height: 95%;
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: contain; /* Ajuste l'image pour qu'elle soit entièrement visible */
-        background-position: center;
-        background-repeat: no-repeat;
-        filter: brightness(90%);
-        z-index: 10; /* Z-index réduit pour être en arrière-plan */
-        opacity: 0;
-    }
-    
-    #histoire::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 15;
-    }
-    .image-low {
-        position: absolute;
-        width: 50%;
-        top: 10%;
-        left: 30px;
-        filter: brightness(50%);
-        height: 30%; /* Ajustez la hauteur selon vos besoins */
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: cover; /* Assure que l'image couvre tout l'espace du conteneur sans être déformée */
-        background-position: center; /* Centre l'image dans le conteneur */
-        background-repeat: no-repeat; /* Empêche l'image de se répéter */
-        margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
-        display: flex;
-        z-index: 10;
-        
-        overflow: hidden; /* Pour s'assurer que l'image ne déborde pas */
-    }
         /* Conteneur Parent pour le Texte Principal et le Bouton */
     .text-and-button {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 0%;
+        margin-top: 75px;
         margin-left: 0%;
         padding-left: 0px;
-        z-index: 20; /* Assure que le texte est visible au-dessus des arrière-plans */
+        
     }
     
     /* Styles pour le Texte Overlay */
-    #histoire .text-overlay {
-        
-        position: absolute;
-        top: 15%;
+    #histoire .text-overlay {   
         left: 40%;
-        padding: 20px;
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        display: inline-block;
-        transform: scaleY(1.6);
-        text-transform: uppercase;
-        color: #fff;
         font-size: 1.85rem;
-        margin: 0;
-        z-index: 30; /* Plus élevé pour apparaître au-dessus de tout */
-        line-height: 120%;
-        font-weight: 700;
     }
     
     /* Texte Additionnel */
     .additional-text {
-        position: relative;
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
-        font-size: 1.25rem;
         width: 200px;
-        color: #fff;
-        line-height: 1.8;
         margin-top: 0%;
         margin-left: 65%;
-        margin-bottom: 20px;
-        padding-right: 20px;
-        z-index: 20;
-    }
-    
-    /* Bouton Personnalisé */
-    #histoire .custom-button {
-        width: 150px;
-        height: 70px;
-        background-image: linear-gradient(to right, #A9A9A9 50%, white 50%);
-        background-size: 200% 100%;
-        background-position: right bottom;
-        color: black;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.25em;
-        line-height: 1.4;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: background-position 0.5s ease;
-        z-index: 20;
-        margin-top: 0%;
-        margin-left: 65%;
-        margin-bottom: 20px;
-        padding-right: 20px;
-        cursor: none;
-    }
-    
-    #histoire .custom-button:hover {
-        background-position: left bottom;
-    }
-    
-    .background-container {
-      width: 100%;
-      height: 100%;
-      background-color: white;
-    }
-    .gallery-description {
-        text-align: center;
-        color: black;
-        padding-top: 80px;
-        padding-bottom: 0;
-        
-    }
-    
-    .gallery-description h2 {
-        font-size: 16px;
-        margin-bottom: 50px;
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: .25em;
-        line-height: 140%;
-        width: 90%;   
-    }
-    
-    
-    
-    .background-white{
-        width: 100%;
-        height: 100%;
-        background-color: white;
-    }
-    
-    #logo-section-black{
-        height: 100%;
-        background-color: white;
-    
-    }
-    #section2{
-        background-color: white;
-        display: flex;
-        flex-direction: column; /* Arrange les enfants en colonne si nécessaire */
-    
-    }
 
-    
-    
-    #photos {
-         
-        height: 100%; /* Définir une hauteur fixe en pixels, par exemple */
-        overflow: hidden; /* Évite le débordement du contenu */
-        position: relative;
-       
-        
     }
+    
+    #histoire .custom-button {
+        margin-left: 65%;   
+    }
+    
+    
     .container-all{
-        display: flex;
-        flex-direction: column;
-        width: 83vw;
-        top: 0;
-        right: 0vh;
-        margin-left: 50px;
-        margin-right: 150px;
-        
+        margin-left: 50px; 
     }
-    .postion-btn{
-        position: relative;
-        height: auto;
-        flex-grow: 1; /* Permet à cet élément de prendre la place restante */
-        display: flex;   
-    }
-    .swiper-navigation-container {
-        display: inline-flex;
-        height: auto; /* Hauteur suffisante pour contenir les deux boutons verticalement */
-        width: auto; /* Largeur pour contenir un seul bouton */
-        position: absolute;   
-        bottom: auto;
-        right: 0vh;
-        user-select: none; /* Désactive la sélection de texte */
-        -webkit-user-select: none; /* Pour les navigateurs Webkit */
-        -moz-user-select: none; /* Pour les navigateurs Firefox */
-        -ms-user-select: none; /* Pour les navigateurs Internet Explorer */
-        
-    }
-    
-    
-    
-    .swiper-slide {
-        width: 100%;
-        height: auto; /* Hauteur ajustée selon le contenu */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* Cacher tout débordement */
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    
-    .swiper-slide img {
-        width: 100%; /* Assurer que l'image couvre entièrement le slide */
-        height: auto; /* Maintenir l'aspect ratio de l'image */
-        object-fit: cover; /* S'assurer que l'image couvre tout l'espace disponible sans déformation */
-    }
-    
-    
-    
-    
-    
-    
-    
-    /* Styles pour le modal */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        padding-top: 50px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.9);
-    }
-    
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: 90%;
-        max-width: 1000px;
-        max-height: 80vh;
-    }
-    
-    #modal-close {
-        position: absolute;
-        top: 20px;
-        right: 35px;
-        color: #fff;
-        font-size: 60px;
-        font-weight: bold;
-        transition: 0.3s;
-        cursor: none;
-    }
-    
-    #modal-close:hover,
-    #modal-close:focus {
-        color: #bbb;
-        text-decoration: none;
-        cursor: none;
-    }
-    
-    
-    
-    /* Slide Caption */
-    .slide-caption {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 16px;
-        z-index: 30; /* Assure que le texte reste visible au-dessus de l'image */
-    }
-    
-    
-    
-    
-    .swiper-navigation-container-after{
-        height: auto; /* Hauteur suffisante pour contenir les deux boutons verticalement */
-        width: auto; /* Largeur pour contenir un seul bouton */
-        position: absolute;
-        display: flex;
-        flex-direction: column; /* Force l'alignement vertical */
-      
-        align-items: center; /* Centre les boutons horizontalement */
-        z-index: 10;
-        
-    }
-    
-    .swiper-button-prev, .swiper-button-next {
-        user-select: none; /* Désactive la sélection de texte */
-        -webkit-user-select: none; /* Pour les navigateurs Webkit */
-        -moz-user-select: none; /* Pour les navigateurs Firefox */
-        -ms-user-select: none; /* Pour les navigateurs Internet Explorer */
-        pointer-events: auto; /* Assurez-vous que les événements de souris sont activés */
-        background-color: black;
-        width: 60px; /* Largeur ajustée pour le conteneur du bouton */
-        height: 60px; /* Hauteur ajustée pour le conteneur du bouton */
-        position: relative; /* Position relative pour centrer le SVG */
-        margin-top: 0;
-        left: 0;
-        cursor: none;
-        
-    }
-    
-    .swiper-button-prev svg,
-    .swiper-button-next svg {
-        
-            width: 9px;
-            height: 14px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        
-    }
-    
-    .swiper-button-prev:hover, .swiper-button-next:hover {
-        background-color: gray;
-    }
-    
-    
-    
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        content: none; /* Masquer le texte ajouté */
-    }
-    
-    .main-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-        height: 100%;
-        margin-top: 200px;
-        padding-bottom: 200px;
-        
-        
-    }
-    
-    #split-video {
-        position: relative;
-        width: 83vw;
-        height: 60vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #image-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        z-index: 10;
-    }
-    
-    .image-half {
-        width: 50%;
-        height: 100%;
-        background-size: cover;
-        transition: transform 1s ease, opacity 1s ease;
-    }
-    
-    .left-half {
-        background-position: left;
-    }
-    
-    .right-half {
-        background-position: right;
-    }
-    
-    .split-left {
-        transform: translateX(50%);
-    }
-    
-    .split-right {
-        transform: translateX(-50%);
-    }
-    
-    .hide {
-        opacity: 0;
-    }
-    
-    #video-container-split {
-        text-align: center;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 80vw;
-        height: 60vh;
-    }
-    
-    #video-container-split iframe {
-        max-width: 100%;
-        max-height: 100%;
        
-    }
-    .circle-container {
-        z-index: 1000;
-        align-items: center;
-        position: absolute; /* Positionnement absolu par rapport à .header-text */
-        width: 150px; /* Taille du cercle */
-        height: 150px; /* Taille du cercle */
-        background-color: rgba(0, 0, 0, 0); /* Fond initial transparent */
-        border: 2px solid #fff; /* Bordure blanche */
-        border-radius: 50%; /* Rend le cercle rond */
-        display: flex; /* Pour centrer le signe play */
-        justify-content: center; /* Centre horizontalement */
-        align-items: center; /* Centre verticalement */
-        transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition douce pour le changement de couleur de fond et de bordure */
-    }
-    
-    .circle-container:hover {
-        background-color: #fff; /* Change la couleur de fond en blanc lors du survol */
-        border-color: #000; /* Change la bordure en noir lors du survol */
-    }
-    
-    .circle-container:hover svg text {
-        fill: #000; /* Change la couleur du texte en noir lors du survol */
-    }
-    
-    .circle-container svg {
-        position: absolute; /* Positionne le SVG de manière absolue dans le cercle */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .circle-container svg text {
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: .15em;
-        fill: #fff; /* Utilisez fill au lieu de color pour les textes SVG */
-        font-size: .875rem;
-        transition: fill 0.3s ease; /* Transition douce pour le changement de couleur du texte */
-    }
-    
-    #play {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none; /* Supprime la décoration de lien */
-        color: transparent; /* Rend le texte transparent */
-        z-index: 1; /* Assurez-vous que le lien est au-dessus des autres éléments */
-    }
-    
-    #play::before {
-        content: "";
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 15px 0 15px 25px; /* Créer un triangle */
-        border-color: transparent transparent transparent #fff; /* Couleur du triangle */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Centre parfaitement le triangle */
-        z-index: 2; /* Assurez-vous que le triangle est au-dessus du lien */
-        transition: border-left-color 0.3s ease; /* Transition douce pour le changement de couleur du triangle */
-    }
-    
-    .circle-container:hover #play::before {
-        border-left-color: #000; /* Change la couleur du triangle en noir lors du survol */
-    }
-    
-    #circle-container.split-right{
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    #circle-container.fade-out {
-        opacity: 0;
-        transition: opacity 1s ease;
-    }
-    
-    
-    #image-text-section {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: 100vh;
-       
-       
-    }
-    
-    .image-text-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        
-    }
-    
-    #background-image {
-        position: relative;
-        width: 100%;
-        min-height: 100vh;
-        background-image: url('../images/img_after/after1.jpg');
-        background-size: cover;
-        background-position: center;
-    }
-    #background-image::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.2); /* Ajustez l'opacité selon vos besoins */
-        z-index: 1; /* S'assurer qu'il est au-dessus de l'image mais en dessous du texte */
-    }
-    .overlay-text-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); 
-        text-align: center;
-        z-index: 2;
-    }
-    
-    .overlay-text {
-        color: white;
-        text-align: center;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 100px;
-        
-    }
-    
-    .overlay-text h1 {
-        margin: 0 0 10px;
-        font-size: 3.5rem; /* Taille du texte pour le mot */
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-    
-    .overlay-text p {
-        margin: 0;
-        font-size: 1.5rem; /* Taille du texte pour la phrase courte */
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
-    }
-    
-    #gradient-section {
-        position: sticky;
-        bottom: 0;
-        min-height: 30vh; /* Utilisez min-height au lieu de height pour éviter les bugs */
-        width: 100%;
-        background: gray; /* Couleur initiale de fond */
-        padding: 50px 0; /* Ajustez les marges internes pour votre contenu */
-        text-align: center;
-        color: white; /* Couleur du texte pour contraste */
-        transition: background 2s ease; /* Transition douce pour le changement de couleur de fond */
-    }
-    
-    #overlay {
-        position: absolute; /* Absolu pour couvrir la section */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: black; /* Couleur initiale de fond */
-        transition: opacity 3s ease; /* Transition douce pour le changement d'opacité */
-        opacity: 1; /* Opacité initiale */
-        z-index: 2; /* Place l'overlay au-dessus de tout */
-    }
-    
-    .transparent-overlay-b {
-        opacity: 0 !important;
-        z-index: -1 !important;
-    }
-    .content-down {
-        display: flex;
-        justify-content: flex-end; /* Aligner les enfants à droite */
-        align-items: center; /* Centrer les éléments verticalement si nécessaire */
-        height: 100%; /* Assurez-vous que la hauteur est définie pour centrer les éléments verticalement */
-        width: 90%;
-    }
+
     #inside-image {
-        position: absolute;
         top: 20%;
-        left: 10px;
-        transform: translateY(-50%);
         max-width: 250px; /* Ajuster la taille selon vos besoins */
-        height: auto;
-        z-index: 1; /* S'assurer que l'image est au-dessus de l'overlay */
+        
     }
     .contact-info {
         display: flex;
@@ -3472,13 +1873,8 @@ nav {
     }
     
     .contact-link {
-        font-size: 1.2rem;
-        color: #fff;
-        text-decoration: none;
        margin-top: 30px;
        margin-left: 20px;
-        transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
-        text-decoration: none;
     }
     .footer-credit {
         position: absolute;
@@ -3489,188 +1885,7 @@ nav {
         text-decoration: none; /* Enlève le soulignement */
         transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
     }
-    /* -------------page 2 ------------------------------*/
-    
-    
-    .content {
-        text-align: center;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-        background-image: url('../images/background_stars.png'); 
-        cursor: none;
-    }
-    #video-container {
-        width: 85%;  /* Largeur du conteneur de la vidéo */
-        max-width: 840px; /* Maximum width */
-        /* Utiliser aspect-ratio pour garder 16:9 */
-        aspect-ratio: 16 / 9;
-        overflow: hidden; /* Pour éviter tout débordement si nécessaire */
-    
-        display: flex; /* Flex pour centrer le contenu du conteneur */
-        justify-content: center;
-        align-items: center;
-    }
-    #video-container iframe {
-        width: 100%; /* Fait en sorte que l'iframe prenne toute la largeur du conteneur */
-        height: 100%; /* Et toute la hauteur pour maintenir l'aspect ratio */
-    }
-    
-    
-        
-    
-    /*      ---------------------page 3  -----------------------*/
-    
-    
-    @keyframes slideUp {
-        from {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideDown {
-        from {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-    }
-    
-    .text-item {
-        margin: 0px 0;
-        font-size: 1.5rem;
-        color: #fff; /* Couleur de texte initiale */
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        font-weight: 700;
-        line-height: 100%;
-        text-transform: uppercase;
-        display: inline-block; /* Ensure the transform is applied correctly */
-        transform: scaleY(1.5); /* Adjust the scale factor as needed */
-        margin-bottom: 60px;
-        text-decoration: none; /* Enlève le surlignement */
-        position: relative; /* Pour contenir les pseudo-éléments */
-        transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
-    }
-    
-    .text-item:hover {
-        color: #888; /* Couleur grise lors du survol */
-    }
-    
-    /* Pseudo-élément pour le texte supplémentaire */
-    .text-item::after {
-        content: attr(data-hover); /* Utilise l'attribut data-hover pour le texte */
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%) scaleX(2); /* Centre le texte et l'étire horizontalement */
-        height: 100%;
-        color: transparent; /* Initialement transparent */
-        overflow: hidden;
-        white-space: nowrap;
-        font-size: 0.25em; /* Réduit la taille du texte à 50% */
-        transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
-        text-align: center; /* Centre le texte */
-    }
-    
-    /* Effet de survol */
-    .text-item:hover::after {
-        color: #fff; /* Couleur du texte lors du survol */
-        transform: translateX(-50%) scaleX(1); /* Réduit le texte à sa taille normale et le garde centré */
-    }
-    
-    
-    .menu-item {
-        overflow: hidden; /* Pour cacher les éléments en dehors de leur conteneur */
-    }
-    
-    .text-item.appear {
-        animation: slideUp 1s forwards;
-    }
-    
-    .text-item.disappear {
-        animation: slideDown 1s forwards;
-    }
-    
-    #page3-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        transform: translateY(100%);
-        transition: transform 1s ease-in-out;
-        background-color: #565655;
-        z-index: -1;
-    }
-    
-    #page3-container.loaded {
-        transform: translateY(0);
-        z-index: 1;
-        background-color: #565655;
-    }
-    
-    #link-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        text-align: center;
-        padding-top: 100px;
-        padding-bottom: 150px;
-    }
-    
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        background-color: transparent;
-        border: none;
-        text-decoration: none;
-        outline: none;
-        cursor: none;
-    }
-    
-    .close-btn::before,
-    .close-btn::after {
-        content: '';
-        position: absolute;
-        width: 40px;
-        height: 2px;
-        background-color: white;
-    }
-    
-    .close-btn::before {
-        transform: rotate(45deg);
-    }
-    
-    .close-btn::after {
-        transform: rotate(-45deg);
-    }
-    
-    #close-btn-page2{
-    
-        margin-right: 10%;
-    
-    }
+ 
 
 
 
@@ -3686,66 +1901,25 @@ nav {
    
     
     .toggle-menu__line {
-        width: 100px; /* Largeur de la ligne */
-        
+        width: 100px; /* Largeur de la ligne */  
     }
     
     .link-container:hover .toggle-menu__line {
-       
-        right: -80px; /* Position ajustée au survol */
-        
+        right: -80px; /* Position ajustée au survol */    
     }
     
-    
-    
-    .line.black {
-        background-color: black;
-    }
-    
+
     
     #logo {
-        position: fixed;
-        top: 20px;
         left: 0px;
         width: 110px;
-        height: auto;
-        display: block; /* Assurez-vous que le logo est visible */
-        z-index: 10000;
     }
     
-    
     #histoire {
-        display: flex; /* Utilise Flexbox pour la mise en page */
-        flex-direction: column; /* Organise les enfants en colonne */
-        align-items: center; /* Centre les enfants horizontalement */
-        justify-content: center; /* Centre les enfants verticalement */
-        position: relative;
-        background-image: url('../images/background_stars.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding-bottom: 133px;
-        height: 100vh;
-        width: 92vw;
+        padding-bottom: 0px;
         margin-top: 0px;
     }
     
-    /* Styles pour le Background de la Section #histoire */
-    #histoire::before {
-        content: "";
-        position: absolute;
-        top: 0%;
-        left: 12%;
-        width: 38%;
-        height: 95%;
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: contain; /* Ajuste l'image pour qu'elle soit entièrement visible */
-        background-position: center;
-        background-repeat: no-repeat;
-        filter: brightness(90%);
-        z-index: 10; /* Z-index réduit pour être en arrière-plan */
-        opacity: 0;
-    }
     
     #histoire::after {
         content: "";
@@ -3757,158 +1931,63 @@ nav {
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 15;
     }
-    .image-low {
-        position: absolute;
-        width: 50%;
-        top: 10%;
-        left: 30px;
-        filter: brightness(50%);
-        height: 30%; /* Ajustez la hauteur selon vos besoins */
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: cover; /* Assure que l'image couvre tout l'espace du conteneur sans être déformée */
-        background-position: center; /* Centre l'image dans le conteneur */
-        background-repeat: no-repeat; /* Empêche l'image de se répéter */
-        margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
-        display: flex;
-        z-index: 10;
-        
-        overflow: hidden; /* Pour s'assurer que l'image ne déborde pas */
+    #histoire {
+        padding-bottom: 0px;
+        margin-top: 0px;
     }
+    
         /* Conteneur Parent pour le Texte Principal et le Bouton */
     .text-and-button {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 0%;
+        margin-top: 130px;
         margin-left: 0%;
         padding-left: 0px;
-        z-index: 20; /* Assure que le texte est visible au-dessus des arrière-plans */
+        
     }
     
     /* Styles pour le Texte Overlay */
-    #histoire .text-overlay {
-        
-        position: absolute;
-        top: 15%;
+    #histoire .text-overlay {   
         left: 40%;
-        padding: 20px;
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        display: inline-block;
-        transform: scaleY(1.6);
-        text-transform: uppercase;
-        color: #fff;
-        font-size: 1.95rem;
-        margin: 0;
-        z-index: 30; /* Plus élevé pour apparaître au-dessus de tout */
-        line-height: 120%;
-        font-weight: 700;
+        font-size: 1.85rem;
     }
     
     /* Texte Additionnel */
     .additional-text {
-        position: relative;
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
-        font-size: 1.5rem;
-        width: 300px;
-        color: #fff;
-        line-height: 1.8;
-        margin-top: 50%;
-        margin-left: 60%;
-        margin-bottom: 20px;
-        padding-right: 20px;
-        z-index: 20;
+        width: 200px;
+        margin-top: 0%;
+        margin-left: 65%;
+
     }
     
- /* Bouton Personnalisé */
- #histoire .custom-button {
-    width: 150px;
-    height: 70px;
-    margin-top: 0%;
-    margin-left: 60%;
-    margin-bottom: 20px;
-    padding-right: 20px;
+    #histoire .custom-button {
+        margin-left: 65%;   
+    }
     
-}
-
+    
 
     .container-all{
-   
-        margin-left:100px;
-        margin-right: 150px;
-        
+        margin-left:100px;   
     }
-    .postion-btn{
-        position: relative;
-        height: auto;
-        flex-grow: 1; /* Permet à cet élément de prendre la place restante */
-        display: flex;   
-    }
-    .swiper-navigation-container {
-        display: inline-flex;
-        height: auto; /* Hauteur suffisante pour contenir les deux boutons verticalement */
-        width: auto; /* Largeur pour contenir un seul bouton */
-        position: absolute;   
-        bottom: auto;
-        right: 0vh;
-        user-select: none; /* Désactive la sélection de texte */
-        -webkit-user-select: none; /* Pour les navigateurs Webkit */
-        -moz-user-select: none; /* Pour les navigateurs Firefox */
-        -ms-user-select: none; /* Pour les navigateurs Internet Explorer */
-        
-    }
-    
-    
-    
-    .swiper-slide {
-        width: 100%;
-        height: auto; /* Hauteur ajustée selon le contenu */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* Cacher tout débordement */
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    
-    .swiper-slide img {
-        width: 100%; /* Assurer que l'image couvre entièrement le slide */
-        height: auto; /* Maintenir l'aspect ratio de l'image */
-        object-fit: cover; /* S'assurer que l'image couvre tout l'espace disponible sans déformation */
-    }
-    
-    
-    
-    
-    
+
     
     #inside-image {
-        position: absolute;
         top: 20%;
-        left: 10px;
-        transform: translateY(-50%);
         max-width: 250px; /* Ajuster la taille selon vos besoins */
-        height: auto;
-        z-index: 1; /* S'assurer que l'image est au-dessus de l'overlay */
     }
     
     
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        position: absolute; /* Permet le positionnement flexible */
-        top: 65%; /* Ajustez cette valeur pour déplacer verticalement */
-        left: 50%; /* Ajustez cette valeur pour déplacer horizontalement */
-        transform: translate(-50%, -50%); /* Centre l'élément */
+
+    .contact-link {
+        font-size: 4.2rem;
+       margin-top: 30px;  
     }
+
     
     .contact-link {
         font-size: 1.8rem;
         color: #fff;
         text-decoration: none;
        margin-top: 30px;
-       margin-left: 50px;
+       margin-left: 100px;
         transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
         text-decoration: none;
     }
@@ -3925,15 +2004,9 @@ nav {
 
     /*-------------page 2 */
     #video-container {
-        width: 90%;  /* Largeur du conteneur de la vidéo */
-        max-width: 1040px; /* Maximum width */
-        /* Utiliser aspect-ratio pour garder 16:9 */
-        aspect-ratio: 16 / 9;
-        overflow: hidden; /* Pour éviter tout débordement si nécessaire */
     
-        display: flex; /* Flex pour centrer le contenu du conteneur */
-        justify-content: center;
-        align-items: center;
+        max-width: 1040px; /* Maximum width */
+      
     }
 }
 
@@ -3941,14 +2014,7 @@ nav {
 
 /* Grand écran */
 @media (min-width: 1440px) {
-    /* Styles pour les grands écrans */
-    #section2 {
-        height: auto;
-        background-color: white;
-        display: flex;
-        align-items: center; /* Centre les enfants horizontalement */
-        justify-content: center; /* Centre les enfants verticalement */
-    }
+
     .toggle-menu__line {
         width: 100px; /* Largeur de la ligne */
         
@@ -3966,75 +2032,29 @@ nav {
        
     }
     
-    .line.black {
-        background-color: black;
-    }
     #histoire {
-        display: flex; /* Utilise Flexbox pour la mise en page */
-        flex-direction: column; /* Organise les enfants en colonne */
-        align-items: center; /* Centre les enfants horizontalement */
-        justify-content: center; /* Centre les enfants verticalement */
-        position: relative;
-        background-image: url('../images/background_stars.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    
         padding-bottom: 133px;
         height: 100vh;
         width: 92vw;
         margin-top: 0px;
     }
     
-    /* Styles pour le Background de la Section #histoire */
-    #histoire::before {
-        content: "";
-        position: absolute;
-        top: 0%;
-        left: 12%;
-        width: 38%;
-        height: 95%;
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: contain; /* Ajuste l'image pour qu'elle soit entièrement visible */
-        background-position: center;
-        background-repeat: no-repeat;
-        filter: brightness(90%);
-        z-index: 10; /* Z-index réduit pour être en arrière-plan */
-        opacity: 0;
-    }
-    
-    #histoire::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 15;
-    }
+  
     .image-low {
-        position: absolute;
         width: 50%;
         top: 10%;
         left: 30px;
-        filter: brightness(50%);
         height: 40%; /* Ajustez la hauteur selon vos besoins */
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: cover; /* Assure que l'image couvre tout l'espace du conteneur sans être déformée */
-        background-position: center; /* Centre l'image dans le conteneur */
-        background-repeat: no-repeat; /* Empêche l'image de se répéter */
         margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
-        display: flex;
-        z-index: 10;
         
-        overflow: hidden; /* Pour s'assurer que l'image ne déborde pas */
     }
         /* Conteneur Parent pour le Texte Principal et le Bouton */
     .text-and-button {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 0%;
+        margin-top: 120px;
         margin-left: 0%;
         padding-left: 0px;
         z-index: 20; /* Assure que le texte est visible au-dessus des arrière-plans */
@@ -4043,22 +2063,9 @@ nav {
 
     
     /* Styles pour le Texte Overlay */
-    #histoire .text-overlay {
-        
-        position: absolute;
-        top: 15%;
+    #histoire .text-overlay {   
         left: 40%;
-        padding: 20px;
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        display: inline-block;
-        transform: scaleY(1.6);
-        text-transform: uppercase;
-        color: #fff;
-        font-size: 2.95rem;
-        margin: 0;
-        z-index: 30; /* Plus élevé pour apparaître au-dessus de tout */
-        line-height: 120%;
-        font-weight: 700;
+        font-size: 1.85rem;
     }
     
     /* Texte Additionnel */
@@ -4069,7 +2076,7 @@ nav {
         width: 300px;
         color: #fff;
         line-height: 1.8;
-        margin-top: 100%;
+        margin-top: 0%;
         margin-left: 60%;
         margin-bottom: 20px;
         padding-right: 20px;
@@ -4159,17 +2166,7 @@ nav {
     }
     
     
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        position: absolute; /* Permet le positionnement flexible */
-        top: 60%; /* Ajustez cette valeur pour déplacer verticalement */
-        left: 80%; /* Ajustez cette valeur pour déplacer horizontalement */
-        transform: translate(-50%, -50%); /* Centre l'élément */
-    }
-    
+
     .contact-link {
         font-size: 4.2rem;
         color: #fff;
@@ -4254,7 +2251,7 @@ nav {
 
 
 }
-@media only screen and (max-width: 600px) and (orientation: landscape) {
+@media only screen and (max-width: 670px) and (orientation: landscape) {
 
     .circle {
         bottom: 1%; /* Aligné en bas */
@@ -4268,56 +2265,29 @@ nav {
 
 
     #histoire {
-        display: flex; /* Utilise Flexbox pour la mise en page */
-        flex-direction: column; /* Organise les enfants en colonne */
-        align-items: center; /* Centre les enfants horizontalement */
-        justify-content: center; /* Centre les enfants verticalement */
-        position: relative;
-        background-image: url('../images/background_stars.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
         padding-bottom: 300px;
         height: 100vh;
         width: 88vw;
         margin-top: 0px;
     }
     
-    /* Styles pour le Background de la Section #histoire */
-    #histoire::before {
-      
-        opacity: 0;
-    }
-    
+
 
     /* Conteneur Parent pour le Texte Principal et le Bouton */
     .text-and-button {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 60%;
-        margin-left: 0%;
-        padding-left: 0px;
-        z-index: 20; /* Assure que le texte est visible au-dessus des arrière-plans */
+
+        margin-top: 0%;
+      
+        
     }
     
     /* Styles pour le Texte Overlay */
     #histoire .text-overlay {
-        position: relative;
+
       
-        top: 5%;
-        left: 0%;
-        padding-left: 20px;
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        display: inline-block;
-        transform: scaleY(1.6);
-        text-transform: uppercase;
-        color: #fff;
-        font-size: 0.8rem;
-        margin: 0;
-        z-index: 30; /* Plus élevé pour apparaître au-dessus de tout */
-        line-height: 120%;
-        font-weight: 700;
+        top: 0%;
+      
+      
     }
     
     /* Texte Additionnel */
@@ -4325,9 +2295,9 @@ nav {
         font-size: 0.6rem;
         margin-top: 0;
         width: 200px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         padding: 20px;
-        margin-top: 20%;
+        margin-top: 0%;
         
     }
     
@@ -4336,67 +2306,40 @@ nav {
         width: 120px;
         height: 50px;
         font-size: 10px;
-        margin-left: 20px;
+        
     }
     
-    #histoire .custom-button:hover {
-        background-position: left bottom;
-    }
+
     .image-low {
         width: 100%;
         height: 250px; /* Ajustez la hauteur selon vos besoins */
-        background-image: url('../images/rebault_dog.jpg');
-        background-size: cover; /* Assure que l'image couvre tout l'espace du conteneur sans être déformée */
-        background-position: center; /* Centre l'image dans le conteneur */
-        background-repeat: no-repeat; /* Empêche l'image de se répéter */
-        margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* Pour s'assurer que l'image ne déborde pas */
+   
     }
     .overlay-text {
-        color: white;
-        text-align: center;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        
+        margin-bottom: 10px;   
     }
     
     .overlay-text h1 {
         margin: 0 0 10px;
         font-size: 1rem; /* Taille du texte pour le mot */
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        font-weight: 700;
-        text-transform: uppercase;
+
+
     }
     
-    .overlay-text p {
-        margin: 0;
-        font-size: 0.9rem; /* Taille du texte pour la phrase courte */
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
+    .overlay-text p {  
+        font-size: 0.9rem; /* Taille du texte pour la phrase courte */   
     }
     #inside-image {
         position: absolute;
         top: 14%;
         left: 10px;
-        transform: translateY(-50%);
         max-width: 100px; /* Ajuster la taille selon vos besoins */
-        height: auto;
-        z-index: 1; /* S'assurer que l'image est au-dessus de l'overlay */
     }
     
     
     .contact-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        position: absolute; /* Permet le positionnement flexible */
         top: 45%; /* Ajustez cette valeur pour déplacer verticalement */
         left: 50%; /* Ajustez cette valeur pour déplacer horizontalement */
-        transform: translate(-50%, -50%); /* Centre l'élément */
     }
     .link-container-footer{
         flex-direction: column; /* Affiche les liens en colonne */
@@ -4532,7 +2475,7 @@ nav {
     }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 1023px) and (orientation: landscape) {
+@media only screen and (min-width: 671px) and (max-width: 1024px) and (orientation: landscape) {
 
     .circle {
         bottom: 3%; /* Aligné en bas */   
@@ -4545,44 +2488,36 @@ nav {
 
 
   /* Conteneur Parent pour le Texte Principal et le Bouton */
-.text-and-button {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 25%;
-    margin-left: 0%;
-    width: 200px;
-    padding-left: 0px;
-    z-index: 20; /* Assure que le texte est visible au-dessus des arrière-plans */
-}
+
+          /* Conteneur Parent pour le Texte Principal et le Bouton */
+          .text-and-button {
+            margin-top: 75px;
+            margin-left: 0%;
+            padding-left: 0px;
+
+        }
+    
+
     
     /* Styles pour le Texte Overlay */
     #histoire .text-overlay {
-        position: relative;
-       
-        top: 5%;
+        position: relative; 
+        top: 0%;
         left: 40%;
-        padding: 20px;
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        display: inline-block;
-        transform: scaleY(1.6);
-        text-transform: uppercase;
-        color: #fff;
+        padding: 0px;
         font-size: 1rem;
-        margin: 0;
-        z-index: 30; /* Plus élevé pour apparaître au-dessus de tout */
-        line-height: 120%;
-        font-weight: 700;
     }
     
     /* Texte Additionnel */
     .additional-text { 
         font-size: 1rem;
         margin-top: 0;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         padding: 20px;
         margin-top: 0%;
         width: 100%;
+        width: 200px;
+        margin-left: 65%;
         
     }
     
@@ -4591,341 +2526,82 @@ nav {
         width: 120px;
         height: 50px;
         font-size: 10px;
-        margin-left: 75%;
+        margin-left: 70%;
     }
-    
-    #histoire .custom-button:hover {
-        background-position: left bottom;
-    }
-    .image-low {
-        
+
+    .image-low {   
         height: 200px; /* Ajustez la hauteur selon vos besoins */
        
     }
     #inside-image {
-        top: 40%;
-        max-width: 120px; /* Ajuster la taille selon vos besoins */
-       
+        top: 24%;
+        left: 10px;
+        max-width: 80px; /* Ajuster la taille selon vos besoins */ 
     }
     .overlay-text {
-        color: white;
-        text-align: center;
-        padding: 20px;
-        border-radius: 10px;
         margin-bottom: 10px;
-        
     }
     
     .overlay-text h1 {
-        margin: 0 0 10px;
-        font-size: 1rem; /* Taille du texte pour le mot */
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        font-weight: 700;
-        text-transform: uppercase;
+        margin: 0 0 15px;
+        font-size: 1.9rem; /* Taille du texte pour le mot */
     }
     
     .overlay-text p {
         margin: 0;
-        font-size: 0.9rem; /* Taille du texte pour la phrase courte */
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
+        font-size: 1.4rem; /* Taille du texte pour la phrase courte */
+        
     }
-    #inside-image {
-        position: absolute;
-        top: 14%;
-        left: 10px;
-        transform: translateY(-50%);
-        max-width: 100px; /* Ajuster la taille selon vos besoins */
-        height: auto;
-        z-index: 1; /* S'assurer que l'image est au-dessus de l'overlay */
-    }
-    
+ 
     
     .contact-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        position: absolute; /* Permet le positionnement flexible */
-        top: 45%; /* Ajustez cette valeur pour déplacer verticalement */
+        top: 55%; /* Ajustez cette valeur pour déplacer verticalement */
         left: 50%; /* Ajustez cette valeur pour déplacer horizontalement */
-        transform: translate(-50%, -50%); /* Centre l'élément */
+       
     }
     .link-container-footer{
-        flex-direction: column; /* Affiche les liens en colonne */
-        gap: 20px; /* Espace entre les liens */
+        flex-direction: flex; /* Affiche les liens en colonne */
         align-items: center; /* Centre les liens horizontalement */
     }
     .contact-link {
         font-size: 0.8rem;
-        color: #fff;
-        text-decoration: none;
        margin-top: 30px;
        margin-left: 20px;
-        transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
-        text-decoration: none;
     }
     .footer-credit {
-        position: absolute;
         bottom: 10px; /* Ajustez cette valeur pour déplacer verticalement */
         right: 10px; /* Ajustez cette valeur pour déplacer horizontalement */
         font-size: 0.6rem; /* Taille de la police */
-        color: #fff; /* Couleur du texte */
-        text-decoration: none; /* Enlève le soulignement */
-        transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
     }
     #inside-image {
         position: absolute;
         top: 24%;
         left: 10px;
-        transform: translateY(-50%);
+    
         max-width: 80px; /* Ajuster la taille selon vos besoins */
-        height: auto;
-        z-index: 1; /* S'assurer que l'image est au-dessus de l'overlay */
+      
     }
     
 }
 
-@media only screen and (min-width: 1024px) and (max-width: 1440px) and (orientation: landscape) {
-
-    .circle {
-        bottom: 3%; /* Aligné en bas */   
-    }
-    #histoire {
-        padding-bottom: 200px;
-    
+@media only screen and (min-width: 1025px) and (orientation: landscape) {
+    .overlay-text {
+        margin-bottom: 0px;
     }
     
-
-
-  /* Conteneur Parent pour le Texte Principal et le Bouton */
-.text-and-button {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 25%;
-    margin-left: 0%;
-    width: 250px;
-    padding-left: 0px;
-    z-index: 20; /* Assure que le texte est visible au-dessus des arrière-plans */
-}
+    .overlay-text h1 {
+        margin: 0 0 30px;
+        font-size: 1.9rem; /* Taille du texte pour le mot */
+    }
     
-    /* Styles pour le Texte Overlay */
-    #histoire .text-overlay {
-        position: relative;
-       
-        top: 0%;
-        left: 40%;
-        padding: 20px;
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        display: inline-block;
-        transform: scaleY(1.6);
-        text-transform: uppercase;
-        color: #fff;
-        font-size: 1rem;
+    .overlay-text p {
         margin: 0;
-        z-index: 30; /* Plus élevé pour apparaître au-dessus de tout */
-        line-height: 120%;
-        font-weight: 700;
+        font-size: 1.4rem; /* Taille du texte pour la phrase courte */
+        
     }
-    
-    /* Texte Additionnel */
-    .additional-text { 
+    .contact-link {
         font-size: 1.5rem;
-        margin-top: 0;
-        margin-bottom: 20px;
-        padding: 20px;
-        margin-top: 0%;
-        width: 100%;
-        
-    }
-    
-    /* Bouton Personnalisé */
-    #histoire .custom-button {
-        width: 120px;
-        height: 50px;
-        font-size: 10px;
-        margin-left: 75%;
-    }
-    
-    #histoire .custom-button:hover {
-        background-position: left bottom;
-    }
-    .image-low {
-        
-        height: 400px; /* Ajustez la hauteur selon vos besoins */
-       
-    }
-    #inside-image {
-        top: 40%;
-        max-width: 120px; /* Ajuster la taille selon vos besoins */
-       
-    }
-    .overlay-text {
-        color: white;
-        text-align: center;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        
-    }
-    
-    .overlay-text h1 {
-        margin: 0 0 10px;
-        font-size: 2rem; /* Taille du texte pour le mot */
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-    
-    .overlay-text p {
-        margin-top: 50px;
-        font-size: 1.5rem; /* Taille du texte pour la phrase courte */
-        font-family: "ff-good-web-pro", "Arial", sans-serif;
-    }
-    #inside-image {
-        position: absolute;
-        top: 14%;
-        left: 10px;
-        transform: translateY(-50%);
-        max-width: 100px; /* Ajuster la taille selon vos besoins */
-        height: auto;
-        z-index: 1; /* S'assurer que l'image est au-dessus de l'overlay */
-    }
-    
-    
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        position: absolute; /* Permet le positionnement flexible */
-        top: 45%; /* Ajustez cette valeur pour déplacer verticalement */
-        left: 50%; /* Ajustez cette valeur pour déplacer horizontalement */
-        transform: translate(-50%, -50%); /* Centre l'élément */
-    }
-    .link-container-footer{
-        flex-direction: column; /* Affiche les liens en colonne */
-        gap: 20px; /* Espace entre les liens */
-        align-items: center; /* Centre les liens horizontalement */
-    }
-    .contact-link {
-        font-size: 0.8rem;
-        color: #fff;
-        text-decoration: none;
-       margin-top: 30px;
-       margin-left: 20px;
-        transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
-        text-decoration: none;
-    }
-    .footer-credit {
-        position: absolute;
-        bottom: 10px; /* Ajustez cette valeur pour déplacer verticalement */
-        right: 10px; /* Ajustez cette valeur pour déplacer horizontalement */
-        font-size: 0.6rem; /* Taille de la police */
-        color: #fff; /* Couleur du texte */
-        text-decoration: none; /* Enlève le soulignement */
-        transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
-    }
-    #inside-image {
-        position: absolute;
-        top: 24%;
-        left: 10px;
-        transform: translateY(-50%);
-        max-width: 80px; /* Ajuster la taille selon vos besoins */
-        height: auto;
-        z-index: 1; /* S'assurer que l'image est au-dessus de l'overlay */
+   
     }
 
-
-
-    .text-item {
-        margin: 20px 0;
-        
-        color: #fff; /* Couleur de texte initiale */
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        font-weight: 700;
-        line-height: 100%;
-        font-size: 3.25rem;
-        text-transform: uppercase;
-        display: inline-block; /* Ensure the transform is applied correctly */
-        transform: scaleY(1.5); /* Adjust the scale factor as needed */
-        margin-bottom: 70px;
-        text-decoration: none; /* Enlève le surlignement */
-        position: relative; /* Pour contenir les pseudo-éléments */
-        transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
-    }
-    
-    .text-item:hover {
-        color: #888; /* Couleur grise lors du survol */
-    }
-    
-    /* Pseudo-élément pour le texte supplémentaire */
-    .text-item::after {
-        content: attr(data-hover); /* Utilise l'attribut data-hover pour le texte */
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%) scaleX(2); /* Centre le texte et l'étire horizontalement */
-        height: 100%;
-        color: transparent; /* Initialement transparent */
-        overflow: hidden;
-        white-space: nowrap;
-        font-size: 0.25em; /* Réduit la taille du texte à 50% */
-        transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
-        text-align: center; /* Centre le texte */
-    }
-    
-    /* Effet de survol */
-    .text-item:hover::after {
-        color: #fff; /* Couleur du texte lors du survol */
-        transform: translateX(-50%) scaleX(1); /* Réduit le texte à sa taille normale et le garde centré */
-    }
-    
-    
-    .menu-item {
-        overflow: hidden; /* Pour cacher les éléments en dehors de leur conteneur */
-    }
-    
-    .text-item.appear {
-        animation: slideUp 1s forwards;
-    }
-    
-    .text-item.disappear {
-        animation: slideDown 1s forwards;
-    }
-    
-    #page3-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        transform: translateY(100%);
-        transition: transform 1s ease-in-out;
-        background-color: #565655;
-        z-index: -1;
-    }
-    
-    #page3-container.loaded {
-        transform: translateY(0);
-        z-index: 1;
-        background-color: #565655;
-    }
-    
-    #link-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        text-align: center;
-        padding-top: 150px;
-        padding-bottom: 150px;
-    }
-    
-}
-
-body.android .custom-cursor, body.android .custom-cursor-follow {
-    display: none;   
-    opacity: 0;
 }
