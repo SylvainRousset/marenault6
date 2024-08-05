@@ -1820,7 +1820,7 @@ nav {
     }
        
     #histoire {
-        padding-bottom: 0px;
+        padding-bottom: 100px;
         margin-top: 0px;
     }
     
@@ -1916,7 +1916,7 @@ nav {
     }
     
     #histoire {
-        padding-bottom: 0px;
+        padding-bottom: 100px;
         margin-top: 0px;
     }
     
@@ -1931,10 +1931,7 @@ nav {
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 15;
     }
-    #histoire {
-        padding-bottom: 0px;
-        margin-top: 0px;
-    }
+    
     
         /* Conteneur Parent pour le Texte Principal et le Bouton */
     .text-and-button {
