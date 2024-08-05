@@ -2375,103 +2375,18 @@ nav {
     .text-item {
         margin: 0px 0;
         font-size: 1.5rem;
-        color: #fff; /* Couleur de texte initiale */
-        font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
-        font-weight: 700;
-        line-height: 100%;
-        text-transform: uppercase;
-        display: inline-block; /* Ensure the transform is applied correctly */
-        transform: scaleY(1.5); /* Adjust the scale factor as needed */
         margin-bottom: 60px;
-        text-decoration: none; /* Enlève le surlignement */
-        position: relative; /* Pour contenir les pseudo-éléments */
-        transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
+       
     }
     
-    .text-item:hover {
-        color: #888; /* Couleur grise lors du survol */
-    }
-    
-    /* Pseudo-élément pour le texte supplémentaire */
-    .text-item::after {
-        content: attr(data-hover); /* Utilise l'attribut data-hover pour le texte */
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%) scaleX(2); /* Centre le texte et l'étire horizontalement */
-        height: 100%;
-        color: transparent; /* Initialement transparent */
-        overflow: hidden;
-        white-space: nowrap;
-        font-size: 0.25em; /* Réduit la taille du texte à 50% */
-        transition: color 0.5s ease, transform 0.5s ease; /* Transition de la couleur et de la transformation */
-        text-align: center; /* Centre le texte */
-    }
-    
-    /* Effet de survol */
-    .text-item:hover::after {
-        color: #fff; /* Couleur du texte lors du survol */
-        transform: translateX(-50%) scaleX(1); /* Réduit le texte à sa taille normale et le garde centré */
-    }
+
     
     
-    .menu-item {
-        overflow: hidden; /* Pour cacher les éléments en dehors de leur conteneur */
-    }
+
     
-    .text-item.appear {
-        animation: slideUp 1s forwards;
-    }
+   
     
-    .text-item.disappear {
-        animation: slideDown 1s forwards;
-    }
-    
-    #page3-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        transform: translateY(100%);
-        transition: transform 1s ease-in-out;
-        background-color: #565655;
-        z-index: -1;
-    }
-    
-    #page3-container.loaded {
-        transform: translateY(0);
-        z-index: 1;
-        background-color: #565655;
-    }
-    
-    #link-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        text-align: center;
-        padding-top: 100px;
-        padding-bottom: 150px;
-    }
-    
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        background-color: transparent;
-        border: none;
-        text-decoration: none;
-        outline: none;
-        cursor: none;
-    }
+
 }
 
 @media only screen and (min-width: 671px) and (max-width: 1024px) and (orientation: landscape) {
@@ -2581,6 +2496,13 @@ nav {
       
     }
     
+    .text-item {
+        margin: 0px 0;
+        font-size: 1.5rem;
+        margin-bottom: 60px;
+       
+    }
+    
 }
 
 @media only screen and (min-width: 1025px) and (orientation: landscape) {
@@ -2602,5 +2524,11 @@ nav {
         font-size: 1.5rem;
    
     }
-
+    .text-item {
+        margin: 0px 0;
+        font-size: 1.5rem;
+        margin-bottom: 60px;
+       
+    }
+    
 }
