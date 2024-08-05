@@ -1826,7 +1826,7 @@ nav {
     
         /* Conteneur Parent pour le Texte Principal et le Bouton */
     .text-and-button {
-        margin-top: 75px;
+        margin-top: 35px;
         margin-left: 0%;
         padding-left: 0px;
         
@@ -1834,13 +1834,13 @@ nav {
     
     /* Styles pour le Texte Overlay */
     #histoire .text-overlay {   
-        left: 40%;
+        margin-left: 45%;
         font-size: 1.85rem;
     }
     
     /* Texte Additionnel */
     .additional-text {
-        width: 200px;
+       
         margin-top: 0%;
         margin-left: 65%;
 
@@ -1946,13 +1946,13 @@ nav {
     
     /* Styles pour le Texte Overlay */
     #histoire .text-overlay {   
-        left: 40%;
+        margin-left: 45%;
         font-size: 1.85rem;
     }
     
     /* Texte Additionnel */
     .additional-text {
-        width: 200px;
+        
         margin-top: 0%;
         margin-left: 65%;
 
@@ -2491,7 +2491,7 @@ nav {
 
           /* Conteneur Parent pour le Texte Principal et le Bouton */
           .text-and-button {
-            margin-top: 75px;
+            margin-top: 50px;
             margin-left: 0%;
             padding-left: 0px;
 
