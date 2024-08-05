@@ -1165,7 +1165,7 @@ nav {
     font-family: "ff-good-web-pro-extra-conden", "Arial", sans-serif;
     font-weight: 700;
     line-height: 100%;
-    font-size: 5.25rem;
+    font-size: 4.25rem;
     text-transform: uppercase;
     display: inline-block; /* Ensure the transform is applied correctly */
     transform: scaleY(1.5); /* Adjust the scale factor as needed */
@@ -2553,7 +2553,7 @@ nav {
     .text-item {
         margin: 0px 0;
         font-size: 4.5rem;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
        
     }
     
