@@ -2550,9 +2550,20 @@ nav {
         font-size: 1.5rem;
    
     }
+    #link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+        margin-top: 80px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
     .text-item {
         margin: 0px 0;
-        font-size: 4.5rem;
+        font-size: 3.5rem;
         margin-bottom: 50px;
        
     }
