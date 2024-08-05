@@ -18,6 +18,11 @@ body {
     cursor: auto !important;  /* Réinitialise le curseur à la valeur par défaut */
     
 }
+/* Désactivation du curseur personnalisé sur les appareils tactiles */
+.touch-device .custom-cursor,
+.touch-device .custom-cursor-follow {
+    display: none;
+}
 ul {
     padding: 0;
     margin: 0;

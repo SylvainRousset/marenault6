@@ -15,6 +15,13 @@ document.getElementById('myButton').addEventListener('click', function() {
 if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
     document.body.classList.add("android");
 }
+
+
+if ('ontouchstart' in document.documentElement) {
+    document.body.classList.add('touch-device');
+} else {
+    document.body.classList.add('no-touch-device');
+}
 // Fonction pour initialiser le curseur personnalisé
 function initCustomCursor() {
     const cursor = document.querySelector('.custom-cursor'); // Sélectionne l'élément du curseur personnalisé
